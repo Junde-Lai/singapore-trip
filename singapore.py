@@ -89,7 +89,7 @@ st.markdown("""
 
 # --- 3. 側邊欄：基本資訊 ---
 with st.sidebar:
-    st.image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e88c7f58-2159-4a3c-8ee4-3919ed7f8a19/dg02zac-b7472d06-5c0c-492a-bd57-69dbaf190b2a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9lODhjN2Y1OC0yMTU5LTRhM2MtOGVlNC0zOTE5ZWQ3ZjhhMTkvZGcwMnphYy1iNzQ3MmQwNi01YzBjLTQ5MmEtYmQ1Ny02OWRiYWYxOTBiMmEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QUm9G1x_098zqjyi7JyFjX5sHffD7zF8ejCrDyXu5fU", width=120)
+    st.image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e88c7f58-2159-4a3c-8ee4-3919ed7f8a19/dg02zac-b7472d06-5c0c-492a-bd57-69dbaf190b2a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InhlaWdodCI6Ijw9NTEyIiwicGF0aCI6IlwvZlwvZTg4YzdmNTgtMjE1OS00YTNjLThlZTQtMzkxOWVkN2Y4YTE5XC9kZzAyemFjLWI3NDcyZDA2LTVjMGMtNDkyYS1iZDU3LTY5ZGJhZjE5MGIyYS5wbmciLCJ3aWR0aCI6Ijw9NTEyIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.5O8gC0e5L4o4_X4o4_X4o4_X4o4_X4o4_X4o4_X4o4", width=120)
     st.title("🇸🇬 新加坡深度遊")
     st.markdown("---")
     st.markdown("**📅 日期**：2026/1/16 (五) - 1/20 (二)")
@@ -488,11 +488,66 @@ elif page == "💰 預算估算":
     st.write("建議換匯金額：每人建議攜帶 **150 - 200 SGD** 現金，其餘使用信用卡 (Visa/Mastercard) 感應支付。")
 
 elif page == "✅ 行前清單":
-    st.markdown('<div class="main-header">✅ 出發前檢查表</div>', unsafe_allow_html=True)
-    st.checkbox("填寫 SG Arrival Card (電子入境卡) - 出發前3天內")
-    st.checkbox("下載 Grab APP (並綁定信用卡)")
-    st.checkbox("確認護照效期 (6個月以上)")
-    st.checkbox("準備英式轉接頭 (三腳方形 Type G)")
-    st.checkbox("準備好走的鞋子 (行程走路較多)")
-    st.checkbox("攜帶薄外套 (室內冷氣強) 與雨傘")
+    st.markdown('<div class="main-header">✅ 出發前檢查表 (懶人包)</div>', unsafe_allow_html=True)
+    
+    # 1. 必備文件與入境
+    st.markdown("### 🛂 必備文件與入境")
+    with st.expander("📄 護照、電子入境卡 (ICA)、網卡", expanded=True):
+        st.markdown("""
+        * **護照**：確認效期還有 **6 個月以上**。
+        * **SG Arrival Card (電子入境卡)**：
+            * **必填！** 出發前 **3 天內** (含當天) 上網填寫。
+            * **免費**，請勿找代辦。建議下載官方 APP **MyICA Mobile** 填寫，可掃描護照自動帶入資料。
+            * 填寫完會有 Email 確認信，入境時不需要印出來，海關系統會自動抓到。
+        * **機票與飯店憑證**：建議存在手機或印出一份備用 (海關偶爾會問)。
+        * **網卡/漫遊**：
+            * 建議在台灣先買好 (Klook/KKday) 到機場領取或用 eSIM。
+            * 若用漫遊，記得出發前向電信公司開通。
+        """)
+
+    # 2. 金錢與支付
+    st.markdown("### 💰 金錢與支付")
+    with st.expander("💵 現金、信用卡、行動支付"):
+        st.markdown("""
+        * **現金建議**：每人準備 **SGD 150 - 200** (約 NT$ 3,600 - 4,800) 即可。
+            * 主要用於：熟食中心 (Hawker Centre)、傳統雜貨店、部分計程車。
+            * **小撇步**：盡量換小面額 (10元、50元)，1000元大鈔很難找開。
+        * **信用卡**：帶 **2 張** (Visa/Mastercard) 海外回饋高的卡。
+            * 新加坡 **地鐵 (MRT) 和 公車** 可以直接刷信用卡 (感應式)，不用買儲值卡！(每人一張卡，不能共用)。
+            * 百貨公司、超市、超商都可刷卡。
+        * **行動支付**：Apple Pay / Google Pay 非常普及。
+        """)
+
+    # 3. 衣物與穿搭
+    st.markdown("### 👕 衣物與穿搭")
+    with st.expander("☀️ 天氣炎熱、冷氣超強"):
+        st.markdown("""
+        * **天氣**：全年夏天 (28-32度)，非常悶熱，常有午後雷陣雨。
+        * **戶外穿著**：短袖、短褲、透氣材質、洋裝。顏色鮮豔拍照好看！
+        * **室內穿著 (非常重要！)**：**一定要帶薄外套**！地鐵、百貨公司、電影院冷氣像不用錢一樣冷，沒帶外套會感冒。
+        * **鞋子**：
+            * **好走的球鞋/休閒鞋**：每天步數可能破萬。
+            * **拖鞋/涼鞋**：去聖淘沙海灘或下雨時穿。
+        * **雨具**：必備 **摺疊傘** (遮陽+擋雨)。
+        """)
+
+    # 4. 電子產品與轉接頭
+    st.markdown("### 🔌 電子產品")
+    with st.expander("⚡ 電壓、插座"):
+        st.markdown("""
+        * **轉接頭**：**英式三腳方形 (Type G)**。台灣插頭插不進去，一定要帶轉接頭！
+        * **電壓**：230V。現在手機/筆電充電器通常是 100-240V 通用，所以**不需要變壓器**，只要轉接頭即可。
+        * **行動電源**：自由行整天開地圖、拍照，電量消耗快，必備 1-2 顆 (記得放隨身行李上飛機)。
+        """)
+
+    # 5. 生活小物
+    st.markdown("### 🧴 生活小物")
+    with st.expander("💊 藥品、衛生紙"):
+        st.markdown("""
+        * **面紙/濕紙巾**：新加坡熟食中心通常**不提供衛生紙**，一定要隨身攜帶！也可以拿來佔位子 (Chope)。
+        * **個人藥品**：胃藥、止痛藥、暈車藥、OK繃。
+        * **防曬用品**：太陽眼鏡、帽子、防曬乳。
+        * **水壺**：新加坡水龍頭的水煮沸後可喝，帶水壺出門省錢 (瓶裝水較貴)。
+        """)
+
     st.success("祝您和媽媽旅途愉快！ Have a nice trip! ✈️")
