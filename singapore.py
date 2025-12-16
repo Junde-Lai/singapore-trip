@@ -89,7 +89,6 @@ st.markdown("""
 
 # --- 3. 側邊欄：基本資訊 ---
 with st.sidebar:
-    # 更換為指定的 Wix 新加坡圖示
     st.image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e88c7f58-2159-4a3c-8ee4-3919ed7f8a19/dg02zac-b7472d06-5c0c-492a-bd57-69dbaf190b2a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9lODhjN2Y1OC0yMTU5LTRhM2MtOGVlNC0zOTE5ZWQ3ZjhhMTkvZGcwMnphYy1iNzQ3MmQwNi01YzBjLTQ5MmEtYmQ1Ny02OWRiYWYxOTBiMmEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QUm9G1x_098zqjyi7JyFjX5sHffD7zF8ejCrDyXu5fU", width=120)
     st.title("🇸🇬 新加坡深度遊")
     st.markdown("---")
@@ -99,11 +98,12 @@ with st.sidebar:
     st.info("""
     **🏨 住宿資訊**
     
-    **YOTEL Singapore Orchard Road**
+    **JEN Singapore Tanglin**
+    (by Shangri-La)
     
-    📍 366 Orchard Road
-    🚇 近 Orchard MRT (烏節站)
-    ✨ 特色：位於市中心黃金地段，交通極致便利，設計時尚現代。
+    📍 1A Cuscaden Road
+    🚇 近 Orchard Boulevard (TE13)
+    ✨ 特色：直通 Tanglin Mall，位於烏節路寧靜的開端，泳池很美，交通方便。
     """)
     
     st.warning("""
@@ -119,7 +119,6 @@ with st.sidebar:
     """)
 
     st.markdown("---")
-    # 更新選單，加入「其他熱門推薦」
     page = st.radio("前往頁面", ["📅 行程總覽", "🗺️ 地圖導航", "💰 預算估算", "✅ 行前清單", "🌟 其他熱門推薦"])
 
 # --- 4. 輔助功能：產生景點卡片 ---
@@ -148,11 +147,11 @@ def render_spot_card(time, title, desc, food=None, tips=None, details=None):
     
     st.markdown("<div style='margin-bottom: 25px;'></div>", unsafe_allow_html=True)
 
-# --- 5. 地標數據 (加入新推薦景點) ---
+# --- 5. 地標數據 (更新飯店位置) ---
 locations = pd.DataFrame({
-    'name': ['YOTEL Orchard', '樟宜機場', '中峇魯', '福康寧公園', '克拉碼頭', '小印度', '甘榜格南', '牛車水', '植物園', '濱海灣金沙', '濱海灣花園', '聖淘沙', '如切/加東', '讚美廣場', '舊禧街警察局'],
-    'lat': [1.3063, 1.3644, 1.2865, 1.2925, 1.2905, 1.3068, 1.3023, 1.2839, 1.3138, 1.2834, 1.2815, 1.2494, 1.3130, 1.2952, 1.2907],
-    'lon': [103.8318, 103.9915, 103.8270, 103.8465, 103.8463, 103.8516, 103.8596, 103.8436, 103.8159, 103.8607, 103.8636, 103.8303, 103.9045, 103.8520, 103.8484],
+    'name': ['JEN Tanglin', '樟宜機場', '中峇魯', '福康寧公園', '克拉碼頭', '小印度', '甘榜格南', '牛車水', '植物園', '濱海灣金沙', '濱海灣花園', '聖淘沙', '如切/加東', '讚美廣場', '舊禧街警察局'],
+    'lat': [1.3056, 1.3644, 1.2865, 1.2925, 1.2905, 1.3068, 1.3023, 1.2839, 1.3138, 1.2834, 1.2815, 1.2494, 1.3130, 1.2952, 1.2907],
+    'lon': [103.8237, 103.9915, 103.8270, 103.8465, 103.8463, 103.8516, 103.8596, 103.8436, 103.8159, 103.8607, 103.8636, 103.8303, 103.9045, 103.8520, 103.8484],
     'type': ['Hotel', 'Airport', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Landmark', 'Landmark', 'Island', 'Recommend', 'Recommend', 'Recommend']
 })
 
@@ -169,7 +168,7 @@ if page == "📅 行程總覽":
         with col1:
              st.metric("抵達時間", "13:05", "T3 航廈")
         with col2:
-            st.info("👋 歡迎！請先辦理入境、領行李，搭乘計程車/地鐵前往 YOTEL 辦理入住，放下行李輕裝出發！")
+            st.info("👋 歡迎！請先辦理入境、領行李，搭乘計程車/地鐵前往 **JEN Tanglin 飯店** 辦理入住，放下行李輕裝出發！")
 
         render_spot_card(
             "15:30 - 17:00", "中峇魯 (Tiong Bahru)",
@@ -328,8 +327,8 @@ if page == "📅 行程總覽":
             """
         )
         render_spot_card(
-            "18:00 - 22:00", "烏節路 (Orchard Road) 回歸",
-            "傍晚回到飯店所在的烏節路，這裡是新加坡的購物天堂，整條街百貨林立。除了逛逛各大百貨公司（如 ION, Paragon），別忘了前往位於商場內的「烏節圖書館」，其波浪形的書架設計充滿現代設計感，是文青必訪之地。晚餐享用新加坡著名的肉骨茶，濃郁的胡椒湯頭能驅散一天的疲憊。",
+            "18:00 - 22:00", "烏節路 (Orchard Road) 逛街",
+            "傍晚回到飯店附近的烏節路（Orchard Road），這裡是新加坡的購物天堂，整條街百貨林立。**JEN Tanglin** 飯店直通 **Tanglin Mall**，旁邊就是 **ION Orchard** 等大型商場。除了逛街，別忘了前往位於商場內的「烏節圖書館」，其波浪形的書架設計充滿現代設計感，是文青必訪之地。晚餐享用新加坡著名的肉骨茶，濃郁的胡椒湯頭能驅散一天的疲憊。",
             food=["松發肉骨茶 (Song Fa)", "亞坤咖椰吐司", "麵包夾冰淇淋 (路邊攤)"],
             tips="松發肉骨茶的湯可以無限續加，服務員會提著茶壺巡視，記得多喝幾碗暖胃！",
             details="""
@@ -337,9 +336,9 @@ if page == "📅 行程總覽":
             位於 **Orchard Gateway** 商場的 3 樓和 4 樓。設計非常現代，波浪書架是必拍重點，但請保持安靜，不要打擾閱讀的人。
             
             **🛍️ 購物建議：**
+            * **Tanglin Mall**：就在飯店樓下，適合逛超市、生活雜貨。
             * **ION Orchard**：國際大牌齊全，地下室美食街選擇多。
             * **Paragon**：精品為主，環境優雅。
-            * **313@Somerset**：年輕潮流品牌多，Forever 21, Zara 等。
             * **Don Don Donki**：位於 Orchard Central，採買日本零食的好地方。
             """
         )
@@ -373,11 +372,12 @@ if page == "📅 行程總覽":
         )
         render_spot_card(
             "12:30 - 14:25", "前往機場 & 星耀樟宜 (Jewel)",
-            "回 YOTEL 取行李前往機場。務必預留時間去機場旁的「星耀樟宜 (Jewel Changi)」，觀賞世界最大的室內瀑布「雨漩渦 (Rain Vortex)」。看著水流從 40 公尺高空傾瀉而下，搭配周圍的森林谷，震撼人心，是新加坡送給旅客最後的驚喜。",
+            "回 **JEN Tanglin** 取行李前往機場。務必預留時間去機場旁的「星耀樟宜 (Jewel Changi)」，觀賞世界最大的室內瀑布「雨漩渦 (Rain Vortex)」。看著水流從 40 公尺高空傾瀉而下，搭配周圍的森林谷，震撼人心，是新加坡送給旅客最後的驚喜。",
             tips="瀑布位於 T1 航廈前方，若您的班機在 T3 報到，可以搭乘機場電車前往觀賞。",
             details="""
             **🚇 交通指南：**
-            從 YOTEL 搭計程車/Grab 到機場約 25-30 分鐘，費用約 SGD 20-30。
+            從飯店搭計程車/Grab 到機場約 25-30 分鐘，費用約 SGD 25-35。
+            或是搭乘地鐵從 **Orchard Boulevard (TE13)** 轉乘至機場（時間較長，約 1 小時 15 分）。
             
             **💦 雨漩渦 (Rain Vortex)：**
             位於 Jewel (星耀樟宜) 的正中央，不需要出境就可以看到。建議先去 T3 華航櫃台寄放行李（若櫃台已開），再輕裝去 Jewel 逛逛。Jewel 與 T1/T2/T3 都有連通道。
