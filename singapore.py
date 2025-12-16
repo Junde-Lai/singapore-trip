@@ -121,6 +121,11 @@ with st.sidebar:
     st.markdown("---")
     page = st.radio("前往頁面", ["📅 行程總覽", "🗺️ 地圖導航", "💰 預算估算", "✅ 行前清單", "🌟 其他熱門推薦"])
 
+    # 新增 KKday 連結
+    st.markdown("---")
+    st.markdown("### 💡 補充資源")
+    st.link_button("🎫 KKday 新加坡門票價格", "https://www.kkday.com/zh-tw/product/productlist/%E6%96%B0%E5%8A%A0%E5%9D%A1")
+
 # --- 4. 輔助功能：產生景點卡片 ---
 def render_spot_card(time, title, desc, food=None, tips=None, details=None):
     food_html = ""
