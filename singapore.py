@@ -89,7 +89,7 @@ st.markdown("""
 
 # --- 3. 側邊欄：基本資訊 ---
 with st.sidebar:
-    st.image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e88c7f58-2159-4a3c-8ee4-3919ed7f8a19/dg02zac-b7472d06-5c0c-492a-bd57-69dbaf190b2a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9lODhjN2Y1OC0yMTU5LTRhM2MtOGVlNC0zOTE5ZWQ3ZjhhMTkvZGcwMnphYy1iNzQ3MmQwNi01YzBjLTQ5MmEtYmQ1Ny02OWRiYWYxOTBiMmEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QUm9G1x_098zqjyi7JyFjX5sHffD7zF8ejCrDyXu5fU", width=120)
+    st.image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e88c7f58-2159-4a3c-8ee4-3919ed7f8a19/dg02zac-b7472d06-5c0c-492a-bd57-69dbaf190b2a.png/v1/fill/w_120,h_120,q_80,strp/merlion_singapore_icon_by_bamen716_dg02zac-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InhlaWdodCI6Ijw9NTEyIiwicGF0aCI6IlwvZlwvZTg4YzdmNTgtMjE1OS00YTNjLThlZTQtMzkxOWVkN2Y4YTE5XC9kZzAyemFjLWI3NDcyZDA2LTVjMGMtNDkyYS1iZDU3LTY5ZGJhZjE5MGIyYS5wbmciLCJ3aWR0aCI6Ijw9NTEyIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.5O8gC0e5L4o4_X4o4_X4o4_X4o4_X4o4_X4o4_X4o4", width=120)
     st.title("🇸🇬 新加坡深度遊")
     st.markdown("---")
     st.markdown("**📅 日期**：2026/1/16 (五) - 1/20 (二)")
@@ -118,7 +118,8 @@ with st.sidebar:
     """)
 
     st.markdown("---")
-    page = st.radio("前往頁面", ["📅 行程總覽", "🗺️ 地圖導航", "💰 預算估算", "✅ 行前清單"])
+    # 更新選單，加入「其他熱門推薦」
+    page = st.radio("前往頁面", ["📅 行程總覽", "🗺️ 地圖導航", "💰 預算估算", "✅ 行前清單", "🌟 其他熱門推薦"])
 
 # --- 4. 輔助功能：產生景點卡片 ---
 def render_spot_card(time, title, desc, food=None, tips=None, details=None):
@@ -146,12 +147,12 @@ def render_spot_card(time, title, desc, food=None, tips=None, details=None):
     
     st.markdown("<div style='margin-bottom: 25px;'></div>", unsafe_allow_html=True)
 
-# --- 5. 地標數據 ---
+# --- 5. 地標數據 (加入新推薦景點) ---
 locations = pd.DataFrame({
-    'name': ['YOTEL Orchard', '樟宜機場', '中峇魯', '福康寧公園', '克拉碼頭', '小印度', '甘榜格南', '牛車水', '植物園', '濱海灣金沙', '濱海灣花園', '聖淘沙'],
-    'lat': [1.3063, 1.3644, 1.2865, 1.2925, 1.2905, 1.3068, 1.3023, 1.2839, 1.3138, 1.2834, 1.2815, 1.2494],
-    'lon': [103.8318, 103.9915, 103.8270, 103.8465, 103.8463, 103.8516, 103.8596, 103.8436, 103.8159, 103.8607, 103.8636, 103.8303],
-    'type': ['Hotel', 'Airport', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Landmark', 'Landmark', 'Island']
+    'name': ['YOTEL Orchard', '樟宜機場', '中峇魯', '福康寧公園', '克拉碼頭', '小印度', '甘榜格南', '牛車水', '植物園', '濱海灣金沙', '濱海灣花園', '聖淘沙', '如切/加東', '讚美廣場', '舊禧街警察局'],
+    'lat': [1.3063, 1.3644, 1.2865, 1.2925, 1.2905, 1.3068, 1.3023, 1.2839, 1.3138, 1.2834, 1.2815, 1.2494, 1.3130, 1.2952, 1.2907],
+    'lon': [103.8318, 103.9915, 103.8270, 103.8465, 103.8463, 103.8516, 103.8596, 103.8436, 103.8159, 103.8607, 103.8636, 103.8303, 103.9045, 103.8520, 103.8484],
+    'type': ['Hotel', 'Airport', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Landmark', 'Landmark', 'Island', 'Recommend', 'Recommend', 'Recommend']
 })
 
 # --- 6. 主頁面邏輯 ---
@@ -381,6 +382,52 @@ if page == "📅 行程總覽":
             位於 Jewel (星耀樟宜) 的正中央，不需要出境就可以看到。建議先去 T3 華航櫃台寄放行李（若櫃台已開），再輕裝去 Jewel 逛逛。Jewel 與 T1/T2/T3 都有連通道。
             """
         )
+
+# --- NEW: 其他熱門推薦 (Plan B) ---
+elif page == "🌟 其他熱門推薦":
+    st.markdown('<div class="main-header">🌟 沒去會後悔？備選行程推薦</div>', unsafe_allow_html=True)
+    st.info("如果您還有體力，或者想替換掉原本行程中的某個點，這裡有 3 個非常適合拍照、氛圍也很棒的推薦去處！")
+
+    render_spot_card(
+        "推薦 1：如切/加東 (Joo Chiat / Katong)",
+        "彩色娘惹屋與道地叻沙",
+        "新加坡色彩最繽紛的街區！這裡有整排保留完整的「Peranakan Houses (娘惹排屋)」，粉紅、粉綠、粉藍的精緻建築立面，配上精美的磁磚，絕對是扼殺底片的超級景點。這裡也是「328 加東叻沙」的發源地，不用剪刀剪米粉，直接用湯匙舀著吃，非常特別。",
+        food=["328 加東叻沙", "金珠肉粽 (娘惹糕)"],
+        details="""
+        **🚇 交通指南：**
+        這裡離地鐵站稍遠，建議直接搭 Grab 前往，或搭地鐵至 **Eunos (EW7)** 或 **Marine Parade (TE26)** 站再轉公車/步行。
+        
+        **📸 最佳拍照點：**
+        定位在 **Koon Seng Road**，那裡有最經典的一排彩色房子。
+        """
+    )
+
+    render_spot_card(
+        "推薦 2：讚美廣場 (CHIJMES)",
+        "夢幻白教堂與露天酒吧",
+        "位於市中心（City Hall 附近），前身是一座古老的修道院。純白色的哥德式教堂非常浪漫，電影《瘋狂亞洲富豪》那場奢華婚禮就是在這裡拍攝的。現在這裡中庭有許多露天酒吧和異國餐廳，晚上點燈後氛圍極佳。",
+        food=["Prive (西式簡餐)", "各式 Tapas 酒吧"],
+        details="""
+        **🚇 交通指南：**
+        搭乘地鐵至 **City Hall (EW13/NS25)** 站，步行約 5 分鐘。就在萊佛士城購物中心對面。
+        
+        **💡 適合時機：**
+        非常適合安排在 Day 3 或 Day 5 的午餐/晚餐，因為離濱海灣很近，累了可以來這坐坐。
+        """
+    )
+
+    render_spot_card(
+        "推薦 3：舊禧街警察局 (Old Hill Street Police Station)",
+        "彩虹窗戶大樓",
+        "這棟建築擁有 927 扇窗戶，被漆成彩虹般的漸層色，非常吸睛。它其實就在克拉碼頭和福康寧公園旁邊，是順路打卡 CP 值最高的景點。",
+        details="""
+        **🚇 交通指南：**
+        就在 **Clarke Quay (NE5)** 地鐵站 E 出口對面，過個馬路就到。
+        
+        **💡 拍照建議：**
+        建議站在對面的馬路邊拍，才能把整棟建築的氣勢拍進去。早晨或傍晚的光線最美。
+        """
+    )
 
 elif page == "🗺️ 地圖導航":
     st.markdown('<div class="main-header">🗺️ 行程景點地圖</div>', unsafe_allow_html=True)
