@@ -89,7 +89,7 @@ st.markdown("""
 
 # --- 3. 側邊欄：基本資訊 ---
 with st.sidebar:
-    st.image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e88c7f58-2159-4a3c-8ee4-3919ed7f8a19/dg02zac-b7472d06-5c0c-492a-bd57-69dbaf190b2a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9lODhjN2Y1OC0yMTU5LTRhM2MtOGVlNC0zOTE5ZWQ3ZjhhMTkvZGcwMnphYy1iNzQ3MmQwNi01YzBjLTQ5MmEtYmQ1Ny02OWRiYWYxOTBiMmEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QUm9G1x_098zqjyi7JyFjX5sHffD7zF8ejCrDyXu5fU", width=120)
+    st.image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e88c7f58-2159-4a3c-8ee4-3919ed7f8a19/dg02zac-b7472d06-5c0c-492a-bd57-69dbaf190b2a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InhlaWdodCI6Ijw9NTEyIiwicGF0aCI6IlwvZlwvZTg4YzdmNTgtMjE1OS00YTNjLThlZTQtMzkxOWVkN2Y4YTE5XC9kZzAyemFjLWI3NDcyZDA2LTVjMGMtNDkyYS1iZDU3LTY5ZGJhZjE5MGIyYS5wbmciLCJ3aWR0aCI6Ijw9NTEyIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.5O8gC0e5L4o4_X4o4_X4o4_X4o4_X4o4_X4o4_X4o4", width=120)
     st.title("🇸🇬 新加坡深度遊")
     st.markdown("---")
     st.markdown("**📅 日期**：2026/1/16 (五) - 1/20 (二)")
@@ -152,11 +152,12 @@ def render_spot_card(time, title, desc, food=None, tips=None, details=None):
     st.markdown("<div style='margin-bottom: 25px;'></div>", unsafe_allow_html=True)
 
 # --- 5. 地標數據 ---
+# 這裡修復了陣列長度不一致的問題 (現在所有欄位都是 18 個項目)
 locations = pd.DataFrame({
     'name': ['JEN Tanglin', '樟宜機場', '中峇魯', '福康寧公園', '克拉碼頭', '小印度', '甘榜格南', '牛車水', '植物園', '濱海灣金沙', '濱海灣花園', '聖淘沙', '如切/加東', '讚美廣場', '舊禧街警察局', 'Manhattan Bar', 'Dempsey Hill', 'Light to Night'],
     'lat': [1.3056, 1.3644, 1.2865, 1.2925, 1.2905, 1.3068, 1.3023, 1.2839, 1.3138, 1.2834, 1.2815, 1.2494, 1.3130, 1.2952, 1.2907, 1.3039, 1.3036, 1.2895],
     'lon': [103.8237, 103.9915, 103.8270, 103.8465, 103.8463, 103.8516, 103.8596, 103.8436, 103.8159, 103.8607, 103.8636, 103.8303, 103.9045, 103.8520, 103.8484, 103.8256, 103.8087, 103.8510],
-    'type': ['Hotel', 'Airport', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Landmark', 'Landmark', 'Island', 'Recommend', 'Recommend', 'Recommend', 'Bar', 'Bar', 'Event']
+    'type': ['Hotel', 'Airport', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Landmark', 'Landmark', 'Island', 'Recommend', 'Recommend', 'Recommend', 'Bar', 'Bar', 'Event']
 })
 
 # --- 6. 主頁面邏輯 ---
@@ -177,7 +178,7 @@ if page == "📅 行程總覽":
         render_spot_card(
             "15:30 - 17:00", "中峇魯 (Tiong Bahru)",
             "中峇魯是新加坡最迷人且歷史悠久的住宅區之一，這裡完美融合了豐富的歷史底蘊與現代文青氣息。您可以漫步在 1930 年代由英國殖民政府建造的「裝飾藝術風格（Art Deco）」老組屋之間，欣賞其標誌性的螺旋樓梯、圓弧形陽台與白色外牆。這個街區充滿了故事，務必尋找由知名藝術家葉耀宗繪製的懷舊壁畫，如描繪昔日居民生活的《巴剎與算命佬》或《鳥語花香》，彷彿穿越時空。此外，巷弄間隱藏著許多獨立書店（如 Woods in the Books）與精品咖啡館，是感受新加坡慢活步調的最佳地點。",
-            food=["中峇魯水粿", "Tiong Bahru Bakery 可頌", "Loo's Hainanese Curry Rice"],
+            food=["中峇魯水粿 (Jian Bo Shui Kueh)", "Tiong Bahru Bakery 可頌", "Loo's Hainanese Curry Rice"],
             tips="壁畫散佈在不同巷弄，建議先在 Google Maps 標記好『Tiong Bahru Murals』的位置，以免迷路。",
             details="""
             **🚇 交通指南：**
