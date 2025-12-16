@@ -89,7 +89,8 @@ st.markdown("""
 
 # --- 3. 側邊欄：基本資訊 ---
 with st.sidebar:
-    st.image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e88c7f58-2159-4a3c-8ee4-3919ed7f8a19/dg02zac-b7472d06-5c0c-492a-bd57-69dbaf190b2a.png/v1/fill/w_120,h_120,q_80,strp/merlion_singapore_icon_by_bamen716_dg02zac-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InhlaWdodCI6Ijw9NTEyIiwicGF0aCI6IlwvZlwvZTg4YzdmNTgtMjE1OS00YTNjLThlZTQtMzkxOWVkN2Y4YTE5XC9kZzAyemFjLWI3NDcyZDA2LTVjMGMtNDkyYS1iZDU3LTY5ZGJhZjE5MGIyYS5wbmciLCJ3aWR0aCI6Ijw9NTEyIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.5O8gC0e5L4o4_X4o4_X4o4_X4o4_X4o4_X4o4_X4o4", width=120)
+    # 更換為穩定且永久有效的 Flaticon 新加坡圖示
+    st.image("https://cdn-icons-png.flaticon.com/512/2060/2060250.png", width=120)
     st.title("🇸🇬 新加坡深度遊")
     st.markdown("---")
     st.markdown("**📅 日期**：2026/1/16 (五) - 1/20 (二)")
