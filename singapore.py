@@ -89,8 +89,8 @@ st.markdown("""
 
 # --- 3. 側邊欄：基本資訊 ---
 with st.sidebar:
-    # 更換為穩定且永久有效的 Flaticon 新加坡圖示
-    st.image("https://cdn-icons-png.flaticon.com/512/2060/2060250.png", width=120)
+    # 更換為指定的 Wix 新加坡圖示
+    st.image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e88c7f58-2159-4a3c-8ee4-3919ed7f8a19/dg02zac-b7472d06-5c0c-492a-bd57-69dbaf190b2a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9lODhjN2Y1OC0yMTU5LTRhM2MtOGVlNC0zOTE5ZWQ3ZjhhMTkvZGcwMnphYy1iNzQ3MmQwNi01YzBjLTQ5MmEtYmQ1Ny02OWRiYWYxOTBiMmEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QUm9G1x_098zqjyi7JyFjX5sHffD7zF8ejCrDyXu5fU", width=120)
     st.title("🇸🇬 新加坡深度遊")
     st.markdown("---")
     st.markdown("**📅 日期**：2026/1/16 (五) - 1/20 (二)")
