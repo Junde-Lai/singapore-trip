@@ -25,6 +25,7 @@ st.markdown("""
     /* 自定義 Hero Banner (標題背景圖) */
     .hero-container {
         position: relative;
+        background-color: #2b3e50; /* 增加深色底色，避免圖片載入失敗時白字看不到 */
         background-image: url('https://preparetravelplans.com/wp-content/uploads/2020/09/Things-to-Do-in-Singapore-at-Night.jpg');
         background-size: cover;
         background-position: center;
@@ -42,7 +43,7 @@ st.markdown("""
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.4); /* 黑色半透明 */
+        background-color: rgba(0, 0, 0, 0.6); /* 加深遮罩到 60% */
         border-radius: 15px;
     }
     
@@ -52,7 +53,7 @@ st.markdown("""
         color: #ffffff;
         font-size: 42px;
         font-weight: 800;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        text-shadow: 3px 3px 6px rgba(0,0,0,0.9); /* 加強文字陰影 */
         margin: 0;
         letter-spacing: 2px;
     }
@@ -64,7 +65,7 @@ st.markdown("""
         font-size: 20px;
         font-weight: 500;
         margin-top: 10px;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.9); /* 加強文字陰影 */
     }
 
     /* 其他既有樣式 (日期標題、卡片等) */
@@ -209,7 +210,7 @@ locations = pd.DataFrame({
     'name': ['JEN Tanglin', '樟宜機場', '中峇魯', '福康寧公園', '克拉碼頭', '小印度', '甘榜格南', '牛車水', '植物園', '濱海灣金沙', '濱海灣花園', '聖淘沙', '如切/加東', '讚美廣場', '舊禧街警察局', 'Manhattan Bar', 'Dempsey Hill', 'Light to Night'],
     'lat': [1.3056, 1.3644, 1.2865, 1.2925, 1.2905, 1.3068, 1.3023, 1.2839, 1.3138, 1.2834, 1.2815, 1.2494, 1.3130, 1.2952, 1.2907, 1.3039, 1.3036, 1.2895],
     'lon': [103.8237, 103.9915, 103.8270, 103.8465, 103.8463, 103.8516, 103.8596, 103.8436, 103.8159, 103.8607, 103.8636, 103.8303, 103.9045, 103.8520, 103.8484, 103.8256, 103.8087, 103.8510],
-    'type': ['Hotel', 'Airport', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Landmark', 'Landmark', 'Island', 'Recommend', 'Recommend', 'Recommend', 'Bar', 'Bar', 'Event']
+    'type': ['Hotel', 'Airport', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Landmark', 'Landmark', 'Island', 'Recommend', 'Recommend', 'Recommend', 'Bar', 'Bar', 'Event']
 })
 
 # --- 6. 主頁面邏輯 ---
