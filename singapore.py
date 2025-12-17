@@ -12,18 +12,62 @@ st.set_page_config(
 # --- 2. 樣式設定 (CSS 美化) ---
 st.markdown("""
 <style>
+    /* 全局字體優化 */
     .stApp {
         font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
     }
-    .main-header {
-        font-size: 36px; 
-        font-weight: 800; 
-        color: #2C3E50;
-        text-align: center;
-        margin-bottom: 30px;
-        letter-spacing: 2px;
-        text-shadow: 2px 2px 4px #eee;
+    
+    /* 隱藏預設的主標題邊距，讓背景圖可以貼頂 */
+    .main .block-container {
+        padding-top: 2rem;
     }
+
+    /* 自定義 Hero Banner (標題背景圖) */
+    .hero-container {
+        position: relative;
+        background-image: url('https://preparetravelplans.com/wp-content/uploads/2020/09/Things-to-Do-in-Singapore-at-Night.jpg');
+        background-size: cover;
+        background-position: center;
+        border-radius: 15px;
+        padding: 60px 20px;
+        margin-bottom: 30px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    /* 加上半透明遮罩，讓文字更清晰 */
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4); /* 黑色半透明 */
+        border-radius: 15px;
+    }
+    
+    /* 標題文字樣式 */
+    .hero-title {
+        position: relative; /* 確保文字在遮罩之上 */
+        color: #ffffff;
+        font-size: 42px;
+        font-weight: 800;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        margin: 0;
+        letter-spacing: 2px;
+    }
+    
+    /* 副標題文字樣式 */
+    .hero-subtitle {
+        position: relative;
+        color: #f0f0f0;
+        font-size: 20px;
+        font-weight: 500;
+        margin-top: 10px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+    }
+
+    /* 其他既有樣式 (日期標題、卡片等) */
     .day-header {
         font-size: 24px;
         font-weight: bold;
@@ -84,12 +128,21 @@ st.markdown("""
         background-color: #f9f9f9;
         border-radius: 10px;
     }
+    
+    /* 一般頁面的標題樣式 (非首頁用) */
+    .main-header {
+        font-size: 32px; 
+        font-weight: 800; 
+        color: #2C3E50;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 </style>
 """, unsafe_allow_html=True)
 
 # --- 3. 側邊欄：基本資訊 ---
 with st.sidebar:
-    st.image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e88c7f58-2159-4a3c-8ee4-3919ed7f8a19/dg02zac-b7472d06-5c0c-492a-bd57-69dbaf190b2a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9lODhjN2Y1OC0yMTU5LTRhM2MtOGVlNC0zOTE5ZWQ3ZjhhMTkvZGcwMnphYy1iNzQ3MmQwNi01YzBjLTQ5MmEtYmQ1Ny02OWRiYWYxOTBiMmEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QUm9G1x_098zqjyi7JyFjX5sHffD7zF8ejCrDyXu5fU", width=120)
+    st.image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e88c7f58-2159-4a3c-8ee4-3919ed7f8a19/dg02zac-b7472d06-5c0c-492a-bd57-69dbaf190b2a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InhlaWdodCI6Ijw9NTEyIiwicGF0aCI6IlwvZlwvZTg4YzdmNTgtMjE1OS00YTNjLThlZTQtMzkxOWVkN2Y4YTE5XC9kZzAyemFjLWI3NDcyZDA2LTVjMGMtNDkyYS1iZDU3LTY5ZGJhZjE5MGIyYS5wbmciLCJ3aWR0aCI6Ijw9NTEyIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.5O8gC0e5L4o4_X4o4_X4o4_X4o4_X4o4_X4o4_X4o4", width=120)
     st.title("🇸🇬 新加坡深度遊")
     st.markdown("---")
     st.markdown("**📅 日期**：2026/1/16 (五) - 1/20 (二)")
@@ -152,18 +205,24 @@ def render_spot_card(time, title, desc, food=None, tips=None, details=None):
     st.markdown("<div style='margin-bottom: 25px;'></div>", unsafe_allow_html=True)
 
 # --- 5. 地標數據 ---
-# 這裡修復了陣列長度不一致的問題 (現在所有欄位都是 18 個項目)
 locations = pd.DataFrame({
     'name': ['JEN Tanglin', '樟宜機場', '中峇魯', '福康寧公園', '克拉碼頭', '小印度', '甘榜格南', '牛車水', '植物園', '濱海灣金沙', '濱海灣花園', '聖淘沙', '如切/加東', '讚美廣場', '舊禧街警察局', 'Manhattan Bar', 'Dempsey Hill', 'Light to Night'],
     'lat': [1.3056, 1.3644, 1.2865, 1.2925, 1.2905, 1.3068, 1.3023, 1.2839, 1.3138, 1.2834, 1.2815, 1.2494, 1.3130, 1.2952, 1.2907, 1.3039, 1.3036, 1.2895],
     'lon': [103.8237, 103.9915, 103.8270, 103.8465, 103.8463, 103.8516, 103.8596, 103.8436, 103.8159, 103.8607, 103.8636, 103.8303, 103.9045, 103.8520, 103.8484, 103.8256, 103.8087, 103.8510],
-    'type': ['Hotel', 'Airport', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Landmark', 'Landmark', 'Island', 'Recommend', 'Recommend', 'Recommend', 'Bar', 'Bar', 'Event']
+    'type': ['Hotel', 'Airport', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Landmark', 'Landmark', 'Island', 'Recommend', 'Recommend', 'Recommend', 'Bar', 'Bar', 'Event']
 })
 
 # --- 6. 主頁面邏輯 ---
 
 if page == "📅 行程總覽":
-    st.markdown('<div class="main-header">✨ 新加坡五天四夜：極致深度探索</div>', unsafe_allow_html=True)
+    # 使用 HTML/CSS 插入背景圖片與標題
+    st.markdown("""
+    <div class="hero-container">
+        <div class="hero-overlay"></div>
+        <h1 class="hero-title">✨ 新加坡五天四夜：極致深度探索</h1>
+        <p class="hero-subtitle">經典地標 ✕ 多元文化 ✕ 在地美食 ✕ 濱海灣夜色</p>
+    </div>
+    """, unsafe_allow_html=True)
     
     day_tab1, day_tab2, day_tab3, day_tab4, day_tab5 = st.tabs(["Day 1", "Day 2", "Day 3", "Day 4", "Day 5"])
 
@@ -177,7 +236,7 @@ if page == "📅 行程總覽":
 
         render_spot_card(
             "15:30 - 17:00", "中峇魯 (Tiong Bahru)",
-            "中峇魯是新加坡最迷人且歷史悠久的住宅區之一，這裡完美融合了豐富的歷史底蘊與現代文青氣息。您可以漫步在 1930 年代由英國殖民政府建造的「裝飾藝術風格（Art Deco）」老組屋之間，欣賞其標誌性的螺旋樓梯、圓弧形陽台與白色外牆。這個街區充滿了故事，務必尋找由知名藝術家葉耀宗繪製的懷舊壁畫，如描繪昔日居民生活的《巴剎與算命佬》或《鳥語花香》，彷彿穿越時空。此外，巷弄間隱藏著許多獨立書店（如 Woods in the Books）與精品咖啡館，是感受新加坡慢活步調的最佳地點。",
+            "中峇魯是新加坡最迷人且歷史悠久的住宅區之一，完美融合了豐富的歷史底蘊與現代文青氣息。您可以漫步在 1930 年代由英國殖民政府建造的「裝飾藝術風格（Art Deco）」老組屋之間，欣賞其標誌性的螺旋樓梯、圓弧形陽台與白色外牆。這個街區充滿了故事，務必尋找由知名藝術家葉耀宗繪製的懷舊壁畫，如描繪昔日居民生活的《巴剎與算命佬》或《鳥語花香》，彷彿穿越時空。此外，巷弄間隱藏著許多獨立書店（如 Woods in the Books）與精品咖啡館，是感受新加坡慢活步調的最佳地點。",
             food=["中峇魯水粿 (Jian Bo Shui Kueh)", "Tiong Bahru Bakery 可頌", "Loo's Hainanese Curry Rice"],
             tips="壁畫散佈在不同巷弄，建議先在 Google Maps 標記好『Tiong Bahru Murals』的位置，以免迷路。",
             details="""
@@ -571,11 +630,9 @@ elif page == "💰 預算估算":
     * **Nassim Hill Bakery**：氣氛棒！在古蹟郵局裡吃西式早午餐。
     """)
 
-# --- 行前清單 (詳細版) ---
 elif page == "✅ 出國當天備忘錄 (詳細版)":
     st.markdown('<div class="main-header">✅ 出國當天備忘錄 (懶人包)</div>', unsafe_allow_html=True)
     
-    # 1. 必備文件與入境
     st.markdown("### 🛂 1. 必備文件與入境 (最重要！)")
     with st.expander("📄 護照、電子入境卡 (ICA)、網卡攻略", expanded=True):
         st.markdown("""
@@ -593,7 +650,6 @@ elif page == "✅ 出國當天備忘錄 (詳細版)":
             * **漫遊**：若用電信漫遊，記得出發前向電信公司申請開通。
         """)
 
-    # 2. 金錢與支付
     st.markdown("### 💰 2. 金錢與支付")
     with st.expander("💵 現金要帶多少？卡要帶哪張？", expanded=True):
         st.markdown("""
@@ -608,7 +664,6 @@ elif page == "✅ 出國當天備忘錄 (詳細版)":
         * **行動支付**：Apple Pay / Google Pay 在當地非常普及。
         """)
 
-    # 3. 衣物與穿搭
     st.markdown("### 👕 3. 衣物與穿搭 (溫差大注意！)")
     with st.expander("☀️ 室外像烤箱，室內像冰箱"):
         st.markdown("""
@@ -624,7 +679,6 @@ elif page == "✅ 出國當天備忘錄 (詳細版)":
         * **雨具**：必備 **輕便摺疊傘** (遮陽+擋雨) 或輕便雨衣。
         """)
 
-    # 4. 電子產品與轉接頭
     st.markdown("### 🔌 4. 電子產品")
     with st.expander("⚡ 電壓、插座、充電"):
         st.markdown("""
@@ -634,7 +688,6 @@ elif page == "✅ 出國當天備忘錄 (詳細版)":
         * **充電線**：多帶一條備用。
         """)
 
-    # 5. 生活小物
     st.markdown("### 🧴 5. 生活小物 (提升旅遊品質)")
     with st.expander("💊 藥品、衛生紙、防曬"):
         st.markdown("""
@@ -647,7 +700,6 @@ elif page == "✅ 出國當天備忘錄 (詳細版)":
         * **環保袋**：超市購物通常不給免費塑膠袋。
         """)
 
-    # 6. APP 下載推薦
     st.markdown("### 📱 6. 推薦下載 APP")
     with st.expander("🚖 交通與地圖"):
         st.markdown("""
