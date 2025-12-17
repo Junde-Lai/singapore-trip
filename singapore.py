@@ -142,7 +142,7 @@ st.markdown("""
 
 # --- 3. 側邊欄：基本資訊 ---
 with st.sidebar:
-    st.image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e88c7f58-2159-4a3c-8ee4-3919ed7f8a19/dg02zac-b7472d06-5c0c-492a-bd57-69dbaf190b2a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InhlaWdodCI6Ijw9NTEyIiwicGF0aCI6IlwvZlwvZTg4YzdmNTgtMjE1OS00YTNjLThlZTQtMzkxOWVkN2Y4YTE5XC9kZzAyemFjLWI3NDcyZDA2LTVjMGMtNDkyYS1iZDU3LTY5ZGJhZjE5MGIyYS5wbmciLCJ3aWR0aCI6Ijw9NTEyIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.5O8gC0e5L4o4_X4o4_X4o4_X4o4_X4o4_X4o4_X4o4", width=120)
+    st.image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e88c7f58-2159-4a3c-8ee4-3919ed7f8a19/dg02zac-b7472d06-5c0c-492a-bd57-69dbaf190b2a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9lODhjN2Y1OC0yMTU5LTRhM2MtOGVlNC0zOTE5ZWQ3ZjhhMTkvZGcwMnphYy1iNzQ3MmQwNi01YzBjLTQ5MmEtYmQ1Ny02OWRiYWYxOTBiMmEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QUm9G1x_098zqjyi7JyFjX5sHffD7zF8ejCrDyXu5fU", width=120)
     st.title("🇸🇬 新加坡深度遊")
     st.markdown("---")
     st.markdown("**📅 日期**：2026/1/16 (五) - 1/20 (二)")
@@ -209,7 +209,7 @@ locations = pd.DataFrame({
     'name': ['JEN Tanglin', '樟宜機場', '中峇魯', '福康寧公園', '克拉碼頭', '小印度', '甘榜格南', '牛車水', '植物園', '濱海灣金沙', '濱海灣花園', '聖淘沙', '如切/加東', '讚美廣場', '舊禧街警察局', 'Manhattan Bar', 'Dempsey Hill', 'Light to Night'],
     'lat': [1.3056, 1.3644, 1.2865, 1.2925, 1.2905, 1.3068, 1.3023, 1.2839, 1.3138, 1.2834, 1.2815, 1.2494, 1.3130, 1.2952, 1.2907, 1.3039, 1.3036, 1.2895],
     'lon': [103.8237, 103.9915, 103.8270, 103.8465, 103.8463, 103.8516, 103.8596, 103.8436, 103.8159, 103.8607, 103.8636, 103.8303, 103.9045, 103.8520, 103.8484, 103.8256, 103.8087, 103.8510],
-    'type': ['Hotel', 'Airport', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Landmark', 'Landmark', 'Island', 'Recommend', 'Recommend', 'Recommend', 'Bar', 'Bar', 'Event']
+    'type': ['Hotel', 'Airport', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Spot', 'Landmark', 'Landmark', 'Island', 'Recommend', 'Recommend', 'Recommend', 'Bar', 'Bar', 'Event']
 })
 
 # --- 6. 主頁面邏輯 ---
@@ -630,9 +630,11 @@ elif page == "💰 預算估算":
     * **Nassim Hill Bakery**：氣氛棒！在古蹟郵局裡吃西式早午餐。
     """)
 
+# --- 行前清單 (詳細版) ---
 elif page == "✅ 出國當天備忘錄 (詳細版)":
     st.markdown('<div class="main-header">✅ 出國當天備忘錄 (懶人包)</div>', unsafe_allow_html=True)
     
+    # 1. 必備文件與入境
     st.markdown("### 🛂 1. 必備文件與入境 (最重要！)")
     with st.expander("📄 護照、電子入境卡 (ICA)、網卡攻略", expanded=True):
         st.markdown("""
@@ -650,6 +652,7 @@ elif page == "✅ 出國當天備忘錄 (詳細版)":
             * **漫遊**：若用電信漫遊，記得出發前向電信公司申請開通。
         """)
 
+    # 2. 金錢與支付
     st.markdown("### 💰 2. 金錢與支付")
     with st.expander("💵 現金要帶多少？卡要帶哪張？", expanded=True):
         st.markdown("""
@@ -664,6 +667,7 @@ elif page == "✅ 出國當天備忘錄 (詳細版)":
         * **行動支付**：Apple Pay / Google Pay 在當地非常普及。
         """)
 
+    # 3. 衣物與穿搭
     st.markdown("### 👕 3. 衣物與穿搭 (溫差大注意！)")
     with st.expander("☀️ 室外像烤箱，室內像冰箱"):
         st.markdown("""
@@ -679,6 +683,7 @@ elif page == "✅ 出國當天備忘錄 (詳細版)":
         * **雨具**：必備 **輕便摺疊傘** (遮陽+擋雨) 或輕便雨衣。
         """)
 
+    # 4. 電子產品與轉接頭
     st.markdown("### 🔌 4. 電子產品")
     with st.expander("⚡ 電壓、插座、充電"):
         st.markdown("""
@@ -688,6 +693,7 @@ elif page == "✅ 出國當天備忘錄 (詳細版)":
         * **充電線**：多帶一條備用。
         """)
 
+    # 5. 生活小物
     st.markdown("### 🧴 5. 生活小物 (提升旅遊品質)")
     with st.expander("💊 藥品、衛生紙、防曬"):
         st.markdown("""
@@ -700,6 +706,7 @@ elif page == "✅ 出國當天備忘錄 (詳細版)":
         * **環保袋**：超市購物通常不給免費塑膠袋。
         """)
 
+    # 6. APP 下載推薦
     st.markdown("### 📱 6. 推薦下載 APP")
     with st.expander("🚖 交通與地圖"):
         st.markdown("""
