@@ -121,11 +121,6 @@ st.markdown("""
         margin-top: 20px;
         border-left: 4px solid #D5DBDB;
     }
-
-    /* 調整側邊欄樣式 */
-    [data-testid="stSidebar"] {
-        background-color: #F4F6F7;
-    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -138,7 +133,7 @@ locations = pd.DataFrame({
 
 # --- 4. 側邊欄：導航與基本資訊 ---
 with st.sidebar:
-    st.image("https://cdn-icons-png.flaticon.com/512/5315/5315386.png", width=100)
+    st.image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e88c7f58-2159-4a3c-8ee4-3919ed7f8a19/dg02zac-b7472d06-5c0c-492a-bd57-69dbaf190b2a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9lODhjN2Y1OC0yMTU5LTRhM2MtOGVlNC0zOTE5ZWQ3ZjhhMTkvZGcwMnphYy1iNzQ3MmQwNi01YzBjLTQ5MmEtYmQ1Ny02OWRiYWYxOTBiMmEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QUm9G1x_098zqjyi7JyFjX5sHffD7zF8ejCrDyXu5fU", width=120)
     st.title("🇸🇬 新加坡深度攻略")
     st.markdown("---")
     st.markdown("**📅 日期**：2026/1/16 - 1/20")
@@ -154,7 +149,7 @@ with st.sidebar:
     
     st.markdown("---")
     st.markdown("### 📞 緊急聯繫與APP")
-    st.caption("Grab: 叫車必備\nGoogle Maps: 導航\nMyICA: 入境申報")
+    st.caption("Grab: 叫車預約\nGoogle Maps: 地圖導航\nMyICA: 入境卡申報")
 
 # --- 5. 輔助功能：產生景點卡片 ---
 def render_spot_card(time, title, desc, food=None, tips=None, details=None):
@@ -185,29 +180,29 @@ if page == "📅 5天4夜行程總覽":
     </div>
     """, unsafe_allow_html=True)
 
-    day_tabs = st.tabs(["Day 1: 抵達與文創", "Day 2: 文化色彩", "Day 3: 濱海巔峰", "Day 4: 海島放鬆", "Day 5: 圓滿告別"])
+    day_tabs = st.tabs(["Day 1", "Day 2", "Day 3", "Day 4", "Day 5"])
 
     # --- DAY 1 ---
     with day_tabs[0]:
         st.markdown('<div class="day-header">1/16 (五) 抵達、文創區與河畔夜景</div>', unsafe_allow_html=True)
         render_spot_card(
             "15:30 - 17:00", "中峇魯 (Tiong Bahru) - 歷史文藝街區",
-            "這裡是新加坡最古老的住宅區之一，完美融合了 1930 年代興建的「裝飾藝術風格 (Art Deco)」建築。漫步在獨特的圓弧型白色組屋間，您可以尋找由藝術家葉耀宗繪製的懷舊壁畫，如《巴剎與算命佬》，感受昔日鄰里情懷。這裡不只是攝影勝地，更是新加坡慢活靈魂的縮影，街道兩旁隱藏著許多獨立書店與精品咖啡館。",
+            "中峇魯是新加坡最迷人且歷史悠久的住宅區，完美融合了 1930 年代興建的「裝飾藝術風格 (Art Deco)」建築。漫步在獨特的圓弧型白色組屋與優雅的螺旋樓梯間，您可以尋找由藝術家葉耀宗繪製的懷舊壁畫，如《巴剎與算命佬》，感受昔日鄰里情懷。這裡不只是攝影勝地，更是新加坡慢活靈魂的縮影，街道兩旁隱藏著許多獨立書店與精品咖啡館。",
             food=["中峇魯水粿 (Jian Bo)", "Tiong Bahru Bakery 可頌"],
             tips="壁畫主要分佈在 Seng Poh Lane 一帶，建議開啟地圖搜尋「Tiong Bahru Murals」。",
             details="**🚇 交通：** 地鐵綠線至 **Tiong Bahru (EW17)** 站，A 出口步行 8-10 分鐘。"
         )
         render_spot_card(
             "17:00 - 18:30", "福康寧公園 (Fort Canning Park) - 螺旋階梯",
-            "這座山丘曾是馬來皇族的禁地，現今最吸引人的則是隱藏在公園邊緣的「螺旋階梯 (Tree Tunnel)」。從深邃的地下隧道往上仰望，茂密的綠色藤蔓與藍天交織出的天井美景，彷彿通往愛麗絲夢遊仙境的入口，是攝影愛好者絕不能錯過的奇幻景點。拍完照後，可以順著山丘漫步，感受涼爽的樹蔭。",
-            tips="階梯常需排隊 20 分鐘以上，若時間緊湊，在底部快速拍幾張氛圍感也很棒。",
-            details="**🚇 交通：** 地鐵 **Dhoby Ghaut (NS24)** 站 B 出口，走地下道即達。"
+            "這座鬱鬱蔥蔥的山丘曾是馬來皇族的禁地，現今最著名的則是隱藏在公園邊緣的「螺旋階梯 (Tree Tunnel)」。從深邃的地下隧道往上仰望，茂密的綠色藤蔓與藍天交織出的天井美景，彷彿通往愛麗絲夢遊仙境的入口，是攝影愛好者絕不能錯過的奇幻景點。拍完照後，可以順著山丘漫步，感受涼爽的樹蔭與古老的堡壘遺跡。",
+            tips="階梯常需排隊，若時間較趕，在底部快速拍幾張氛圍感照片也很棒。",
+            details="**🚇 交通：** 地鐵 **Dhoby Ghaut (NS24)** 站 B 出口，往 Penang Road 走地下道即達。"
         )
         render_spot_card(
             "18:30 - 22:00", "克拉碼頭 (Clarke Quay) - 晚宴與河畔漫步",
-            "當夜幕降臨，新加坡河畔的舊倉庫區化身為霓虹閃爍的派對天堂。您可以沿著河岸漫步，欣賞歷史悠久的橋樑與倒映在水面的摩天大樓。這裡匯集了世界級美食，尤其是著名的海鮮餐館，點上一份辛辣鮮甜的辣椒螃蟹，配上外酥內軟的炸饅頭，是來到新加坡最正宗的味覺體驗。",
+            "當夜幕降臨，新加坡河畔的舊倉庫區化身為霓虹閃爍的派對天堂。您可以沿著河岸漫步，欣賞歷史悠久的橋樑與倒映在水面的摩天大樓。這裡匯集了世界級美食，尤其是著名的海鮮餐館，點上一份辛辣鮮甜的辣椒螃蟹，配上外酥內軟的炸饅頭，是來到新加坡最正宗的味覺體驗。餐後吹著晚風，看著河面上來往的觀光船，愜意無比。",
             food=["珍寶海鮮 (Jumbo) 辣椒螃蟹", "松發肉骨茶 (河畔店)"],
-            details="**🚢 推薦：** 若體力尚可，可搭乘 **Singapore River Cruise** 復古木船，航程約 40 分鐘，從水上視角看金沙燈光秀。"
+            details="**🚢 推薦：** 可搭乘 **Singapore River Cruise** 復古木船，航程約 40 分鐘，從水上視角看克拉碼頭與金沙。"
         )
 
     # --- DAY 2 ---
@@ -215,99 +210,100 @@ if page == "📅 5天4夜行程總覽":
         st.markdown('<div class="day-header">1/17 (六) 多元種族色彩：歷史與信仰的對話</div>', unsafe_allow_html=True)
         render_spot_card(
             "09:00 - 12:30", "小印度 (Little India) - 香料與色彩的盛宴",
-            "一踏入這區，視覺與嗅覺將瞬間被喚醒！街道兩側是色彩大膽鮮豔的店屋，空氣中瀰漫著濃郁的茉莉花與咖哩香。參觀精雕細琢的「維拉馬卡里亞曼興都廟」，欣賞塔樓上無數生動的神像；接著前往「陳東齡故居」，這座兩層樓的彩色別墅是小印度的靈魂地標，展現了華麗的幾何與色彩美學。",
+            "一踏入這區，視覺與嗅覺將瞬間被喚醒！街道兩側是色彩大膽鮮豔的店屋，空氣中瀰漫著濃郁的茉莉花與香料芬芳。參觀精雕細琢的「維拉馬卡里亞曼興都廟」，欣賞塔樓上無數生動的神像雕刻；接著前往「陳東齡故居」，這座兩層樓的彩色別墅是小印度的靈魂地標，展現了華麗的幾何與色彩美學，每一角都是完美的拍照背景。",
             food=["竹腳中心印度甩餅 (Roti Prata)", "拉茶 (Teh Tarik)"],
-            tips="進入興都廟需脫鞋，當天建議穿著方便穿脫的鞋子。",
+            tips="進入興都廟需脫鞋，建議當天穿著方便穿脫的鞋子。廟內拍照請避開祭祀活動。",
             details="**🚇 交通：** 地鐵 **Little India (NE7)** 站，E 出口出來即是美食天堂竹腳中心。"
         )
         render_spot_card(
             "12:30 - 17:30", "甘幫格南 (Kampong Glam) & 哈芝巷",
-            "這裡是新加坡馬來文化的核心。壯觀的「蘇丹回教堂」擁有巨大的金色圓頂，展現宗教的莊嚴；緊鄰的「哈芝巷 (Haji Lane)」則是極大反差的潮人領地。狹窄巷弄佈滿了充滿生命力的巨幅噴漆壁畫，兩側林立著個性店鋪與中東香氛店。您可以帶媽媽在金頂回教堂前拍下如畫般的美景，再走入巷弄挖寶。",
+            "這裡是新加坡馬來與穆斯林文化的核心。壯觀的「蘇丹回教堂」擁有巨大的金色圓頂，在陽光下閃閃發光；緊鄰的「哈芝巷 (Haji Lane)」則是極大反差的潮流領地。狹窄巷弄佈滿了充滿生命力的巨幅噴漆壁畫，兩側林立著個性店鋪與中東香氛店。您可以帶媽媽在金頂回教堂前拍下如畫般的美景，再走入巷弄挖寶。",
             food=["Zam Zam 印度煎餅 (Murtabak)", "白蘭閣街蝦麵"],
-            details="哈芝巷的許多風格小店下午一點後才會全開，此時前往最熱鬧好逛。"
+            details="哈芝巷下午一點後店家會開齊，適合午後慢慢散步尋找有趣的文創商品。"
         )
         render_spot_card(
             "17:30 - 22:00", "牛車水 (Chinatown) - 早期華人與融合美學",
             "這裡是新加坡早期華人移民的聚集地，保留了濃厚的歷史氛圍。您可以參觀莊嚴宏偉的「佛牙寺龍華院」，其建築風格融合了唐代與曼陀羅元素，內部金碧輝煌。令人驚訝的是，僅一街之隔就是新加坡最古老的印度教廟宇「馬里安曼興都廟」，展現了新加坡不同宗教的和諧共處。晚上街道上的紅燈籠亮起，充滿濃厚的東方風情，是體驗華人文化與美食的絕佳地點。",
-            food=["天天海南雞飯", "林志源肉乾", "老伴豆花"],
-            tips="天天海南雞飯若排隊過長，隔壁的「阿仔海南雞飯」同樣美味且節省時間。",
+            food=["麥士威熟食中心 (天天海南雞飯)", "林志源肉乾", "老伴豆花"],
+            tips="天天海南雞飯若排隊過長，隔壁的「阿仔海南雞飯」據說是前主廚出來開的，同樣美味。",
             details="**🚇 交通：** 地鐵 **Maxwell (TE18)** 站，一出來即是麥士威熟食中心。"
         )
 
     # --- DAY 3 ---
     with day_tabs[2]:
-        st.markdown('<div class="day-header">1/18 (日) 濱海核心：高空微醺與璀璨藝術節</div>', unsafe_allow_html=True)
+        st.markdown('<div class="day-header">1/18 (日) 濱海核心：高空微醺與璀璨藝術節 🌙</div>', unsafe_allow_html=True)
         render_spot_card(
             "09:00 - 12:00", "新加坡植物園 (Botanic Gardens) - UNESCO 遺產",
-            "擁有 160 多年歷史，是新加坡唯一的 UNESCO 世界遺產。這裡宛如隱身於都市的熱帶雨林，漫步於優雅的「國家蘭花園」，您可以欣賞到超過 2000 種蘭花競相綻放，包括以各國名貴命名的品種。這裡是與媽媽悠閒散步、遠離塵囂、享受森林浴的最佳首選。",
-            tips="蘭花園內部設有冷室館，是避暑賞花的絕佳地點。",
+            "擁有 160 多年歷史的新加坡植物園，是這座城市唯一的 UNESCO 世界遺產。這裡宛如一片隱身於都市的熱帶雨林，漫步於優雅的「國家蘭花園」，您可以欣賞到超過 2000 種蘭花競相綻放。這裡是與媽媽悠閒散步、享受森林浴的最佳去處，內部的冷室館更是模擬了高山森林氣候，涼爽宜人。",
+            tips="蘭花園需門票，但其展示的精緻程度絕對值得一遊。",
             details="**🚇 交通：** 地鐵 **Botanic Gardens (CC19)** 站即達。"
         )
         render_spot_card(
             "12:00 - 17:30", "地標巡禮：魚尾獅公園、螺旋橋、老巴剎",
-            "收集新加坡最經典的明信片視角。站在魚尾獅公園與噴水的魚尾獅合照，接著走過極具未來感的螺旋橋抵達金沙酒店。午餐特別安排在「老巴剎 (Lau Pa Sat)」，這是一座建於 19 世紀的維多利亞時代鑄鐵建築，在現代金融區摩天大樓包圍下享受沙嗲串燒，感受強烈的時空交錯感。",
+            "收集新加坡最經典的明信片視角。站在魚尾獅公園與噴水的魚尾獅合照、接水求財，接著走過擁有 DNA 雙螺旋造型的螺旋橋抵達金沙酒店。午餐特別安排在「老巴剎 (Lau Pa Sat)」，這是一座建於 19 世紀的維多利亞時代鑄鐵建築，在現代摩天大樓包圍下享受沙嗲串燒，感受強烈的時空交錯感。",
             food=["老巴剎沙嗲串燒 (Satay)", "福建炒麵"],
-            details="老巴剎的沙嗲街下午七點後會封路，中午前往可坐在通風良好的建築體內享用。"
+            details="**🚶 建議路線：** 魚尾獅 ➔ 雙螺旋橋 ➔ 金沙購物中心 ➔ 步行至老巴剎。"
         )
         render_spot_card(
             "17:30 - 20:30", "濱海灣花園 (Gardens by the Bay) ✕ 超級樹秀",
-            "先在「雲霧林」觀看 35 公尺高的室內瀑布。晚上 19:45，請在超級樹下找個位置，仰望 **Garden Rhapsody 燈光秀**。隨著激昂的音樂與跳動的燈光，巨大的超級樹彷彿擁有了生命，帶您走入阿凡達的奇幻世界。這場秀是新加坡將科技與自然結合的最美呈現。",
-            tips="看完 19:45 的秀後，請快速穿過金沙酒店連通道前往第 3 塔樓 (Tower 3)。",
-            details="**🌟 完美銜接攻略：** 19:45 燈光秀結束 ➔ 20:30 抵達 CÉ LA VI 酒吧。"
+            "先在冷室「雲霧林」觀看 35 公尺高的室內瀑布。晚上 19:45，請找一個舒適的位置，欣賞「超級樹 (Supertree Grove)」的 Garden Rhapsody 燈光秀。隨著壯闊的音樂，發光的巨樹群閃爍起繽紛色彩，帶來極致的視覺震撼。這場秀是新加坡將未來感科技與自然結合的最美呈現。",
+            tips="超級樹秀結束後，請快速穿過金沙酒店連通道前往第 3 塔樓 (Tower 3)。",
+            details="**🌟 完美銜接：** 19:45 燈光秀 ➔ 20:30 抵達 CÉ LA VI 酒吧。"
         )
         render_spot_card(
             "20:30 - 21:45", "金沙 CÉ LA VI SkyBar - 高空微醺 🍸",
-            "登上 57 層樓之巔！在 CÉ LA VI SkyBar 點杯精緻調酒，您可以近距離俯視世界著名的無邊際泳池，並將整座濱海灣的閃耀燈海盡收眼底。21:00 時，還可以從這個絕佳的高空視角，觀察下方噴泉水幕射出的雷射光芒。比起封閉的觀景台，這裡的露天氛圍更能讓您和媽媽徹底放鬆，享受頂級的視覺饗宴。",
-            tips="有 Smart Casual 服裝要求（建議避開夾腳拖、男士避開背心）。",
-            details="**📍 位置：** 金沙酒店 Tower 3 頂樓電梯入口。"
+            "登上 57 層樓之巔！在 CÉ LA VI SkyBar 點杯精緻調酒，您可以近距離俯視著名的無邊際泳池，並將整座濱海灣的璀璨燈海盡收眼底。21:00 時，還可以從這個絕佳的高空視角，俯瞰下方噴水池射出的雷射水舞秀。比起封閉的觀景台，這裡的露天氛圍更能讓您和媽媽徹底放鬆，享受頂級的微醺之夜。",
+            tips="建議提前預約並說明慶生/旅遊需求。有 Smart Casual 著裝要求（避免拖鞋、男士避開背心）。",
+            details="**📍 位置：** 金沙酒店 Tower 3 頂樓入口。"
         )
         render_spot_card(
             "21:45 - 23:00", "🌟 晝夜璀璨藝術節 (Light to Night 2026)",
-            "**今晚最夢幻的壓軸！** 此時深夜氣溫最涼爽，國家美術館與維多利亞劇院的古典牆面化身巨大畫布，上演震撼的光雕投影投影秀。深夜的人潮已散，您可以和媽媽悠閒散步在 Padang 草地上，吹著涼爽的晚風，欣賞這些古典建築在數位藝術下的繽紛變身。這是年度限時的藝術盛會，絕對值得以此收官您的濱海之夜。",
-            tips="深夜的光雕效果最好。若媽媽累了，可從金沙直接叫 Grab 抵達 National Gallery 門口。",
-            details="**📍 地點：** 市政區 (Civic District)。完全免費的戶外藝術饗宴。"
+            "**今晚最震撼的 Ending！** 此時深夜氣溫最涼爽，國家美術館與維多利亞劇院的古典牆面化身巨大畫布，上演震撼的光雕投影秀。深夜的人潮已散，您可以和媽媽悠閒散步在 Padang 草地上，吹著晚風欣賞古典建築在數位藝術下的繽紛變身。這是年度限時的盛會，絕對值得以此收官您的濱海之夜。",
+            tips="光雕效果在深夜最清晰。若體力受限，可從金沙直接叫車到國家美術館門口，少走一點路。",
+            details="**📍 地點：** 市政區 (Civic District)。這是完全免費的年度藝術盛事。"
         )
 
     # --- DAY 4 ---
     with day_tabs[3]:
-        st.markdown('<div class="day-header">1/19 (一) 海島放鬆與生活設計美學</div>', unsafe_allow_html=True)
+        st.markdown('<div class="day-header">1/19 (一) 海島度假與生活設計美學</div>', unsafe_allow_html=True)
         render_spot_card(
             "09:00 - 13:00", "聖淘沙 (Sentosa) - 丹戎海灘慢時光",
-            "搭乘纜車入島，從高空俯視繁忙的港景與藍海。我們避開喧囂的遊樂設施，直奔島上最安靜的「丹戎海灘 (Tanjong Beach)」。這裡是聖淘沙最安靜、最有南洋度假感的角落。您可以赤腳漫步於細軟白沙，看著搖曳椰林享受海島微風，感受截然不同的都市寧靜。",
-            tips="纜車票建議事先購買 QR Code，可節省排隊買票時間。",
-            details="**🚇 交通：** 從 HarbourFront 地鐵站轉乘纜車或輕軌進入。"
+            "搭乘纜車入島，從高空俯視繁忙的港景。我們避開擁擠的環球影城，直奔最安靜的「丹戎海灘 (Tanjong Beach)」，這裡是聖淘沙最有南洋度假感的角落。您可以赤腳漫步於細軟白沙，看著搖曳椰林享受海島微風，享受與媽媽共享的慢節奏度假時光。",
+            tips="纜車票事先買好電子票，掃碼即可快速通關。",
+            details="**🚇 交通：** 地鐵 **HarbourFront** 站轉乘纜車或輕軌進入。"
         )
         render_spot_card(
             "13:00 - 17:00", "SkyHelix 空中喜立 - 360 度全景體驗",
-            "坐在緩緩旋轉升空的 SkyHelix 座椅上，您的雙腳會懸空上升至 79 公尺的高空，360 度無死角地俯瞰聖淘沙全景與南部的眾多小島。在上面喝著涼爽飲料，與媽媽一起拍下這段高空度假的回憶。隨後找間海灘俱樂部休息，體驗正宗的島嶼節奏。",
+            "體驗聖淘沙最受歡迎的高空設施 SkyHelix。您的座位會緩緩旋轉上升至 79 公尺高空，雙腳懸空俯瞰聖淘沙全景與南部島嶼群。在上面喝著飲料，與媽媽一起拍下這段高空度假的回憶。隨後可找間海灘俱樂部休息，點杯調酒或現剖椰子，沉浸在度假氛圍中。",
             food=["海灘俱樂部調酒", "新鮮椰子水"],
-            details="SkyHelix 的上升過程非常平穩，懼高者也通常能接受，視野無敵。"
+            details="SkyHelix 上升過程平穩，視野開闊，票價通常含一杯飲料。"
         )
         render_spot_card(
             "17:00 - 22:00", "烏節路 (Orchard Road) & 烏節圖書館",
-            "回到飯店周邊的購物天堂。必訪隱身於商場內的「烏節圖書館 (library@orchard)」，其流線型波浪書架設計已成為全球設計與文青愛好者的朝聖點。晚餐享用著名的胡椒味肉骨茶，濃郁的暖湯能洗去一整日的疲憊，為漫長的海島之旅劃下溫潤的句點。",
+            "回到飯店周邊。必訪隱身於商場內的「烏節圖書館 (library@orchard)」，其流線型波浪書架設計已成為全球文青的朝聖點。晚餐享用胡椒味濃郁的肉骨茶，溫潤的熱湯能洗去整日疲憊，為海島之旅劃下暖心的句點。",
             food=["松發肉骨茶 (Song Fa)", "亞坤咖椰吐司"],
-            details="圖書館位於 **Orchard Gateway** 3-4 樓。晚餐後可直接步行回飯店。"
+            details="圖書館位於 **Orchard Gateway** 3-4 樓。晚餐推薦松發，湯頭可無限續加。"
         )
 
     # --- DAY 5 ---
     with day_tabs[4]:
-        st.markdown('<div class="day-header">1/20 (二) 悠閒結尾：飯店早餐與星耀震撼</div>', unsafe_allow_html=True)
+        st.markdown('<div class="day-header">1/20 (二) 悠閒結尾：飯店慢活與星耀驚喜</div>', unsafe_allow_html=True)
         render_spot_card(
-            "09:00 - 11:30", "Slow Morning：飯店早餐與最後採買",
-            "旅程的最後一個早晨不需要趕路。在 **JEN Tanglin** 飯店享用完早餐後，您可以和媽媽到飯店直通的 **Tanglin Mall** 逛逛。這裡有高品質的超市（如 Marketplace）可以買到精緻的新加坡香料、醬料或果醬。或是前往附近的南洋老牌咖啡店，體驗當地人最日常的早茶生活，享受離開前的悠閒節奏。",
-            food=["Killiney Kopitiam 傳統咖啡", "飯店早餐"],
-            tips="11:30 辦理退房，建議直接從飯店叫 Grab 載著行李前往機場，省去體力負荷。",
-            details="Tanglin Mall 內有許多質感小店，與一般的觀光商場不同，更具在地氣息。"
+            "09:00 - 11:30", "飯店慢活與最後採買",
+            "最後一個早晨不需要趕路。在飯店享用完早餐後，您可以和媽媽到飯店直通的 **Tanglin Mall** 逛逛。這裡有高品質的超市可以買到精緻的新加坡醬料或果醬。或是前往附近的南洋老牌咖啡店，體驗當地人最日常的早茶，享受離開前的悠閒節奏，徹底放鬆心情。",
+            food=["Killiney Kopitiam 咖啡", "飯店早餐"],
+            tips="11:30 辦理退房，建議直接從飯店預約計程車前往機場，節省體力負擔。",
+            details="Tanglin Mall 內有許多質感生活雜貨店，非常適合最後的紀念品採買。"
         )
         render_spot_card(
-            "12:00 - 14:25", "星耀樟宜 (Jewel) - 雨漩渦與離境告別",
-            "在前往櫃台報到前，絕對要朝聖這座世界之最。走入由玻璃與鋼骨建構出的室內森林，欣賞高達 40 公尺、從圓頂傾瀉而下的「雨漩渦 (Rain Vortex)」。水霧在陽光照射下如夢似幻，這是新加坡送給每一位旅者最完美的告別禮物。在震撼的瀑布前拍下最後的紀念照，帶著圓滿的回憶準備登機。",
-            tips="瀑布從 11:00 開始噴水。建議先去 T3 華航櫃台報到托運行李，再輕裝逛 Jewel。",
-            details="**✈️ 提醒：** 班機 CI752 於 14:25 起飛，請最遲於 13:30 完成出關安檢。"
+            "12:00 - 14:25", "星耀樟宜 (Jewel) - 雨漩渦震撼告別",
+            "在前往櫃台報到前，絕對要朝聖這座世界級的地標。走入由玻璃與鋼骨建構的森林谷，欣賞高達 40 公尺、從屋頂傾瀉而下的「雨漩渦 (Rain Vortex)」。水霧在陽光下如夢似幻，這是新加坡送給每一位旅者最難忘的告別禮物。看著瀑布，為這段完美的旅程畫下圓滿句點。",
+            tips="瀑布從 11:00 開始噴水。建議先去 T3 航廈華航櫃台報到托運，再輕裝逛 Jewel。",
+            details="**✈️ 提醒：** 班機 CI752 為 14:25 起飛，請務必於 13:30 前完成出境安檢。"
         )
 
-# --- 7. 其他分頁 ---
+# --- 7. 其他分頁內容 ---
+
 elif page == "🗺️ 互動景點地圖":
     st.markdown('<div class="main-header">🗺️ 旅程足跡導航</div>', unsafe_allow_html=True)
     st.pydeck_chart(pdk.Deck(
@@ -316,37 +312,30 @@ elif page == "🗺️ 互動景點地圖":
         tooltip={"text": "{name}"},
         map_style='https://basemaps.cartocdn.com/gl/positron-gl-style/style.json'
     ))
-    st.caption("紅色圓點代表您的核心活動區。")
 
 elif page == "💰 預算估算":
-    st.markdown('<div class="main-header">💰 兩人開支預估</div>', unsafe_allow_html=True)
-    sgd_per_day = st.slider("每人每日餐飲/交通預算 (SGD)", 30, 150, 70)
-    tickets = st.number_input("全程兩人門票預估 (SGD)", value=250)
-    total_sgd = (sgd_per_day * 2 * 5) + tickets
-    st.metric("兩人總預算預估 (不含機宿)", f"SGD ${total_sgd}", f"約 TWD ${total_sgd*24:,.0f}")
+    st.markdown('<div class="main-header">💰 旅遊預算計算機</div>', unsafe_allow_html=True)
+    num_people = st.number_input("人數", min_value=1, value=2)
+    food_budget = st.slider("每日餐飲預算 (SGD/人)", 30, 150, 70)
+    tickets = st.number_input("全程門票總預算 (SGD/人)", value=120)
+    total_sgd = (food_budget * 5 + tickets) * num_people
+    st.metric("兩人總預算預估 (不含機宿)", f"SGD ${total_sgd}", f"約 NT$ {total_sgd*24:,.0f}")
 
 elif page == "🛍️ 必買伴手禮清單":
-    st.markdown('<div class="main-header">🛍️ 新加坡 5 大經典伴手禮</div>', unsafe_allow_html=True)
-    render_spot_card("1. 綠蛋糕 (Pandan Cake)", "Bengawan Solo", "最具代表性的名產，清新班蘭味與綿密口感，機場買最方便。", details="買回家後建議 2 天內食用完畢。")
-    render_spot_card("2. 鹹蛋魚皮", "IRVINS", "紅遍全球的零食，炸魚皮裹滿濃郁鹹蛋黃，超級涮嘴。", details="各大超市與機場皆有售。")
-    render_spot_card("3. 咖椰醬 (Kaya Jam)", "Ya Kun / Toast Box", "早餐店靈魂，椰奶與雞蛋的香甜，帶回台灣配吐司超棒。", details="玻璃罐裝較重，記得妥善包裝防碎。")
-    render_spot_card("4. 百勝廚叻沙拉麵", "Prima Taste", "曾評為世界第一泡麵，湯頭還原度 100%，必買黑包裝 Laksa。", details="各大超市如 FairPrice 最划算。")
-    render_spot_card("5. 小 CK 包包", "Charles & Keith", "新加坡國民精品，價格約台灣 8 折，款式多且更新快。", details="消費滿 $100 可憑護照辦理退稅。")
+    st.markdown('<div class="main-header">🛍️ 新加坡 5 大必買名產</div>', unsafe_allow_html=True)
+    render_spot_card("1. 綠蛋糕 (Pandan Cake)", "Bengawan Solo", "最具代表性的班蘭蛋糕，口感綿密帶椰香，機場買最新鮮。", details="買回家後建議 2 天內食用完畢。")
+    render_spot_card("2. 鹹蛋魚皮", "IRVINS", "新加坡零食之王，炸魚皮裹滿鹹蛋黃醬，超級涮嘴。", details="各大超市或機場都有分店。")
+    render_spot_card("3. 咖椰醬 (Kaya Jam)", "Ya Kun / Toast Box", "早餐靈魂，抹在吐司上加奶油就是正宗南洋味。", details="超市買玻璃罐裝便宜且口味選擇多。")
+    render_spot_card("4. 百勝廚叻沙拉麵", "Prima Taste", "世界第一泡麵，湯頭極濃郁，推薦買黑色包裝 Laksa 口味。", details="超市採購比機場便宜很多。")
+    render_spot_card("5. 小 CK 包包", "Charles & Keith", "本地平價精品，價格約台灣 8 折左右，款式更新極快。", details="滿 $100 即可憑護照辦理退稅。")
 
 elif page == "✅ 出國準備備忘錄":
-    st.markdown('<div class="main-header">✅ 行前確認清單</div>', unsafe_allow_html=True)
-    cols = st.columns(2)
-    with cols[0]:
-        st.subheader("🛂 文件與網路")
-        st.write("- 護照 (效期 6 個月以上)")
-        st.write("- ICA 入境卡 (出發前 3 天申報)")
-        st.write("- 網路網卡/eSim (確認已安裝)")
-        st.write("- 保險憑證與機票截圖")
-    with cols[1]:
-        st.subheader("🧴 生活小物")
-        st.write("- 英式轉接頭 (三腳方形)")
-        st.write("- 輕便雨傘/雨衣 (午後陣雨多)")
-        st.write("- 薄外套 (室內冷氣像冰箱)")
-        st.write("- 隨身濕紙巾 (吃海鮮必備)")
-
-    st.success("一切準備就緒！祝您與媽媽擁有一個完美的新加坡之旅！✈️")
+    st.markdown('<div class="main-header">✅ 行前準備確認清單</div>', unsafe_allow_html=True)
+    st.info("出發前請再次勾選，確保旅途無憂！")
+    st.checkbox("護照效期超過 6 個月")
+    st.checkbox("已申報 SG Arrival Card (ICA) 入境卡")
+    st.checkbox("已開通電信漫遊或安裝 eSim")
+    st.checkbox("英式三腳轉接頭 (Type G)")
+    st.checkbox("薄外套 (防冷氣冰箱)")
+    st.checkbox("隨身濕紙巾 (吃螃蟹必備)")
+    st.success("一切準備就緒，祝您與媽媽擁有完美的旅程！✈️")
