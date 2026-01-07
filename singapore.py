@@ -370,6 +370,7 @@ if page == "📅 行程總覽":
             tips="有 Smart Casual 服裝要求。請提前線上訂位並選擇 Outdoor Bar。",
             details="""
             **📍 位置：** 金沙酒店第 3 塔樓 (Tower 3) 頂樓電梯直達。"
+            
             **🚇 交通指南：**
             搭乘地鐵至 **Bayfront (CE1/DT16)** 站，從金沙酒店 3 號塔樓 (Tower 3) 外部入口進入售票處與電梯。
             
